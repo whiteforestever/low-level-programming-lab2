@@ -17,12 +17,23 @@ global read_word
 global parse_uint
 global parse_int
 global string_copy
+global print_error
 
     ; Принимает код возврата и завершает текущий процесс
 exit:
     mov rax, 60
     xor rdi, rdi
     syscall
+
+print_error:
+    push rdi
+    call string_length
+    pop rsi
+    mov rdx, rax
+    mov rax, 1
+    mov rdi, 2 
+    syscall
+    ret
 
     ; Принимает указатель на нуль-терминированную строку, выводит её в stdout
 print_string:
