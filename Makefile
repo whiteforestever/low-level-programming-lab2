@@ -1,19 +1,11 @@
-ASM=nasm
-ASMFLAGS=-felf64
-LD=ld
-
-program: main
-
-main: main.o dict.o lib.o
-	$(LD) -o $@ $^
+dic: 	main.o dict.o lib.o
+		ld -o dic main.o dict.o lib.o
 
 main.o: main.asm colon.inc words.inc
-	$(ASM) $(ASMFLAGS) $<
+		nasm -felf64 main.asm
 
-%.o: %.asm
-	$(ASM) $(ASMFLAGS) $<
-	
-clean:
-	rm -f *.o
+dict.o: dict.asm 
+		nasm -felf64 dict.asm
 
-.PHONY: clean
+lib.o: 	lib.asm 
+		nasm -felf64 lib.asm

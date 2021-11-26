@@ -1,13 +1,12 @@
-section .text
+global find_word
 
 extern string_equals
 
-global find_word
+section .text
 
 ; rdi - Указатель на нуль-терминированную строку.
 ; rsi - Указатель на начало словаря.
-; return address of the beginning of entry
-; into the dictionary
+; return address of the beginning of entry into the dictionary
 ; return rax = 0 if not found
 find_word:    
     xor rax, rax
@@ -22,8 +21,8 @@ find_word:
         pop rsi
         pop rdi
         test rax, rax
-        jz .found
-        mov rsi, [rsi] ; переходим дальше по списку, если не пришли в начало
+        jnz .found
+        mov rsi, [rsi] ; переходим дальше по списку, если не пришли в конец
         jmp .loop
 
     .found:
