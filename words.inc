@@ -1,11 +1,11 @@
 colon "Fedor", first
-db "Never gonna give you up", 0
+db "Yeah, We have an employee Fedor", 0
 
-colon "Ulrich", second
-db "Never gonna let you down", 0
+colon "Ian", second
+db "Yeah, We have an employee Ian", 0
 
 colon "Don", third
-db "Never gonna run around and desert you", 0
+db "Yeah, We have an employee Don", 0
 
 colon "Kris", fourth
-db "Never gonna make you cry", 0
+db "Yeah, We have an employee Kris", 0
